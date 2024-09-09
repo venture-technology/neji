@@ -29,7 +29,7 @@ func (uc *NejiUseCase) DeployVenture(s *discordgo.Session, m *discordgo.MessageC
 		log.Print(err)
 	}
 
-	s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("# Deploy Backend Venture Inicializado \n - **Started_at: %v** \n - **ID: %s**", time.Now().Format("15:04:05"), id))
+	s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("# Deploy Backend Venture Inicializado \n - **Started_at: %v** \n - **ID: %s**", time.Now().Add(-3*time.Hour).Format("15:04:05"), id))
 
 	if err := os.Chdir("/root/venture"); err != nil {
 		fmt.Println("Erro ao mudar de diretório:", err)
@@ -51,7 +51,7 @@ func (uc *NejiUseCase) DeployVenture(s *discordgo.Session, m *discordgo.MessageC
 		return
 	}
 
-	s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("# Deploy Backend Venture Finalizado \n - **Status: Success** \n - **Finished_at: %v**", time.Now().Format("15:04:05")))
+	s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("# Deploy Backend Venture Finalizado \n - **Status: Success** \n - **Finished_at: %v**", time.Now().Add(-3*time.Hour).Format("15:04:05")))
 
 }
 
