@@ -8,10 +8,11 @@ import (
 )
 
 type Config struct {
-	Name     string  `yaml:"name"`
-	Server   Server  `yaml:"server"`
-	Discord  Discord `yaml:"discord"`
-	Database Database
+	Name     string   `yaml:"name"`
+	Server   Server   `yaml:"server"`
+	Discord  Discord  `yaml:"discord"`
+	Database Database `yaml:"database"`
+	SSH      SSH      `yaml:"ssh"`
 }
 
 type Server struct {
@@ -31,6 +32,13 @@ type Database struct {
 	Password string `yaml:"dbpassword"`
 	Name     string `yaml:"dbname"`
 	Schema   string `yaml:"schema"`
+}
+
+type SSH struct {
+	User     string `yaml:"user"`
+	Password string `yaml:"password"`
+	Host     string `yaml:"host"`
+	Port     string `yaml:"port"`
 }
 
 var config *Config
